@@ -80,10 +80,8 @@ Vagrant.configure("2") do |config|
      django-admin startproject mytracker	
      cd mytracker/
      django-admin startapp custom_tracker
-     cd ~/
+     cd /home/vagrant
      mkdir src; cd src
-     git config --global user.email "vagrant@vagrant.local"
-     git config --global user.name "Reptation"
      git clone https://github.com/reptation/mytracker.git
      python manage.py runserver 0.0.0.0:8000 &
   SHELL
