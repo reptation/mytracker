@@ -28,7 +28,7 @@ Vagrant.configure("2") do |config|
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine and only allow access
   # via 127.0.0.1 to disable public access
-  config.vm.hostname "tracker"
+  config.vm.hostname = "tracker"
   config.vm.network "forwarded_port", guest: 8000, host: 8000, host_ip: "127.0.0.1"
 
   # Create a private network, which allows host-only access to the machine
@@ -77,8 +77,14 @@ Vagrant.configure("2") do |config|
      ln -s /usr/bin/pip3 /usr/bin/pip
      ln -s /usr/bin/python3 /usr/bin/python
      pip install django
-     django-admin startproject mytracker
+     django-admin startproject mytracker	
      cd mytracker/
+     django-admin startapp custom_tracker
+     cd ~/
+     mkdir src; cd src
+     git config --global user.email "vagrant@vagrant.local"
+     git config --global user.name "Reptation"
+     git clone https://github.com/reptation/mytracker.git
      python manage.py runserver 0.0.0.0:8000 &
   SHELL
 end
