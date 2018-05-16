@@ -1,0 +1,5 @@
+*.pyc
+__pycache__/*
+settings.py
+ubuntu-bionic-18.04-cloudimg-console.log
+notes.org

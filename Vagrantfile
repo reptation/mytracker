@@ -83,6 +83,8 @@ Vagrant.configure("2") do |config|
      cd /home/vagrant
      mkdir src; cd src
      git clone https://github.com/reptation/mytracker.git
+     git config --global user.email "david [at] musicalquilt dot com"
+     git config --global user.name "reptation"
      python manage.py runserver 0.0.0.0:8000 &
   SHELL
 end
