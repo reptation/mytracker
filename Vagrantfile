@@ -81,6 +81,7 @@ Vagrant.configure("2") do |config|
      cd mytracker/
      django-admin startapp custom_tracker
      cd /home/vagrant
+     git clone https://github.com/reptation/scripts.git
      mkdir src; cd src
      git clone https://github.com/reptation/mytracker.git
      git config --global user.email "david [at] musicalquilt dot com"
