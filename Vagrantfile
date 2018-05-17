@@ -68,22 +68,22 @@ Vagrant.configure("2") do |config|
      apt-get update
      apt-get install -y htop
      cd /home/vagrant
-     wget https://raw.githubusercontent.com/reptation/scripts/master/.bash_aliases
+     git clone https://github.com/reptation/scripts.git
+     cp ./scripts/.bash_aliases .
+     cp ./scripts/.vimrc .
      ln -s /vagrant/ vagrant
-     chown vagrant:vagrant .bash_aliases 
      
-     #install django
+     #install django 
+     mkdir src; cd src
+     git clone https://github.com/reptation/mytracker.git
      apt-get install -y python3-pip
      ln -s /usr/bin/pip3 /usr/bin/pip
      ln -s /usr/bin/python3 /usr/bin/python
      pip install django
-     django-admin startproject mytracker	
+     django-admin startproject mytracker
      cd mytracker/
      django-admin startapp custom_tracker
-     cd /home/vagrant
-     git clone https://github.com/reptation/scripts.git
-     mkdir src; cd src
-     git clone https://github.com/reptation/mytracker.git
+     chown -R vagrant:vagrant /home/vagrant/*
      git config --global user.email "david [at] musicalquilt dot com"
      git config --global user.name "reptation"
      python manage.py runserver 0.0.0.0:8000 &
