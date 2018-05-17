@@ -72,8 +72,6 @@ Vagrant.configure("2") do |config|
      cp ./scripts/.bash_aliases .
      cp ./scripts/.vimrc .
      ln -s /vagrant/ vagrant
-     
-     #install django 
      mkdir src; cd src
      git clone https://github.com/reptation/mytracker.git
      apt-get install -y python3-pip
@@ -84,8 +82,9 @@ Vagrant.configure("2") do |config|
      cd mytracker/
      django-admin startapp custom_tracker
      chown -R vagrant:vagrant /home/vagrant/*
-     git config --global user.email "david [at] musicalquilt dot com"
+     git config --global user.email "david@musicalquilt.com"
      git config --global user.name "reptation"
+     #start the server
      python manage.py runserver 0.0.0.0:8000 &
   SHELL
 end
