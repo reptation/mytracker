@@ -22,7 +22,7 @@ Class AppUser(models.Model):
     #password = 
     # one to many?
     items = models.ManyToManyField(Item)
-    preferred_mw = models.ManyToManyField(MeasureWord, through='Pairings')
+    preferred_measure_word = models.ManyToManyField(MeasureWord, through='Pairings')
     # preferred measure words? fk lookup on items
 
 Class Item(model.Model):
