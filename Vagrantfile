@@ -89,6 +89,7 @@ Vagrant.configure("2") do |config|
      chown -R vagrant:vagrant /home/vagrant/*
      git config --global user.email "david@musicalquilt.com"
      git config --global user.name "reptation"
+     cp /root/.gitconfig /home/vagrant/
      #start the server
      python manage.py runserver 0.0.0.0:8000 &
   SHELL
